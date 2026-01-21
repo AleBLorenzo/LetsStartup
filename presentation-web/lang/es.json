@@ -1,0 +1,23 @@
+{
+  "home": "Inicio",
+  "about": "Nosotros",
+  "services": "Servicios",
+  "contact": "Contacto",
+  "heroTitle": "Construyendo el mañana, <span class=\"highlight\">hoy.</span>",
+  "heroSubtitle": "En DigitAll transformamos startups con soluciones digitales de alto impacto.",
+  "heroBtn": "Descubre qué hacemos",
+  "aboutTitle": "Quiénes Somos",
+  "aboutText": "Somos una agencia creativa y digital con sede en Canarias, especializada en llevar startups al siguiente nivel. Creemos en la tecnología accesible, el diseño funcional y el crecimiento continuo.",
+  "servicesTitle": "Nuestra Oferta",
+  "service1Title": "Transformación Digital",
+  "service1Text": "Digitalizamos tus procesos para hacer tu startup más eficiente y competitiva.",
+  "service2Title": "Desarrollo Web & Apps",
+  "service2Text": "Creamos experiencias robustas y escalables usando las últimas tecnologías.",
+  "service3Title": "Identidad Visual",
+  "service3Text": "Construimos marcas fuertes que conectan emocionalmente con tu audiencia.",
+  "contactTitle": "Contacto",
+  "contactSubtitle": "¿Listo para empezar? Escríbenos:",
+  "email": "Email:",
+  "phone": "Teléfono:",
+  "footer": "© 2026 DigitAll Canarias - Todos los derechos reservados."
+}

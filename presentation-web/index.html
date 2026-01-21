@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DigitAll | Comprehensive Digital Solutions</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo-container">
+                <img src="images/logo.png" alt="DigitAll Logo" class="nav-logo">
+            </div>
+            <ul>
+                <li class="nav-lang-container">
+                    <div class="language-selector">
+                        <button class="lang-dropdown-btn" onclick="toggleLanguageMenu()">
+                            <span id="current-flag">🇬🇧</span>
+                            <span class="arrow">▼</span>
+                        </button>
+                        <div id="language-menu" class="language-menu">
+                            <button onclick="changeLanguage('es')" class="lang-option">
+                                <span class="flag">🇪🇸</span>
+                                <span>Español</span>
+                            </button>
+                            <button onclick="changeLanguage('en')" class="lang-option">
+                                <span class="flag">🇬🇧</span>
+                                <span>English</span>
+                            </button>
+                            <button onclick="changeLanguage('pl')" class="lang-option">
+                                <span class="flag">🇵🇱</span>
+                                <span>Polski</span>
+                            </button>
+                            <button onclick="changeLanguage('el')" class="lang-option">
+                                <span class="flag">🇬🇷</span>
+                                <span>Ελληνικά</span>
+                            </button>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="#hero" data-i18n="home">Home</a></li>
+                <li><a href="#nosotros" data-i18n="about">About Us</a></li>
+                <li><a href="#servicios" data-i18n="services">Services</a></li>
+                <li><a href="#contacto" data-i18n="contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="hero">
+        <div class="hero-content">
+            <h1 data-i18n="heroTitle">Shaping tomorrow, <span class="highlight">today.</span></h1>
+            <p data-i18n="heroSubtitle">At DigitAll we transform startups with high-impact digital solutions.</p>
+            <a href="#servicios" class="btn" data-i18n="heroBtn">Discover what we do</a>
+        </div>
+    </section>
+
+    <section id="nosotros">
+        <h2 data-i18n="aboutTitle">Who We Are</h2>
+        <p data-i18n="aboutText">We are a creative and digital agency based in the Canary Islands, specialized in taking startups to the next level. We believe in accessible technology, functional design, and continuous growth.</p>
+    </section>
+
+    <section id="servicios">
+        <h2 data-i18n="servicesTitle">Our Offer</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3 data-i18n="service1Title">Digital Transformation</h3>
+                <p data-i18n="service1Text">We digitalize your processes to make your startup more efficient and competitive.</p>
+            </div>
+            <div class="service-card">
+                <h3 data-i18n="service2Title">Web & App Development</h3>
+                <p data-i18n="service2Text">We create robust and scalable experiences using the latest technologies.</p>
+            </div>
+            <div class="service-card">
+                <h3 data-i18n="service3Title">Visual Identity</h3>
+                <p data-i18n="service3Text">We build strong brands that connect emotionally with your audience.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contacto">
+        <h2 data-i18n="contactTitle">Contact</h2>
+        <p data-i18n="contactSubtitle">Ready to get started? Write to us:</p>
+        <p><strong data-i18n="email">Email:</strong> info@digitallcanarias.com</p>
+        <p><strong data-i18n="phone">Phone:</strong> +34 922 000 000</p>
+        <hr>
+        <p data-i18n="footer">&copy; 2026 DigitAll Canarias - All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleLanguageMenu() {
+            const menu = document.getElementById('language-menu');
+            menu.classList.toggle('show');
+        }
+
+        async function changeLanguage(lang) {
+            try {
+                // 1. Intentamos cargar el archivo JSON (ej: es.json)
+                const response = await fetch(`lang/${lang}.json`);
+                if (!response.ok) throw new Error(`No se pudo cargar el archivo ${lang}.json`);
+
+                const texts = await response.json();
+
+                // 2. Actualizamos la bandera del botón principal
+                const flags = {
+                    'en': '🇬🇧',
+                    'es': '🇪🇸',
+                    'pl': '🇵🇱',
+                    'el': '🇬🇷'
+                };
+                document.getElementById('current-flag').innerText = flags[lang];
+
+                // 3. Buscamos todos los elementos con el atributo data-i18n
+                document.querySelectorAll('[data-i18n]').forEach(element => {
+                    const key = element.getAttribute('data-i18n');
+                    if (texts[key]) {
+                        // Usamos innerHTML por si el JSON tiene etiquetas como <span>
+                        element.innerHTML = texts[key];
+                    }
+                });
+
+                // 4. Cerramos el menú
+                toggleLanguageMenu();
+                console.log(`Idioma cambiado a: ${lang}`);
+
+            } catch (error) {
+                console.error("Error al cambiar el idioma:", error);
+                alert("Error al cargar el archivo de idioma. Asegúrate de estar usando un servidor local (Live Server).");
+            }
+        }
+
+        // Cerrar si se hace clic fuera
+        window.onclick = function(event) {
+            if (!event.target.closest('.language-selector')) {
+                const menu = document.getElementById('language-menu');
+                if (menu.classList.contains('show')) {
+                    menu.classList.remove('show');
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

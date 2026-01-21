@@ -1,0 +1,228 @@
+/* --- Estilos Generales --- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+
+/* --- Navegación --- */
+
+header {
+    background: #fff;
+    padding: 1rem 10%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    max-width: 150px;
+    height: auto;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    align-items: center;
+    /* Alinea verticalmente el selector con los links */
+}
+
+nav a {
+    text-decoration: none;
+    color: #0056a4;
+    /* Azul del logo */
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #5bc0de;
+}
+
+
+/* --- Selector de Idiomas (Versión Reducida) --- */
+
+.nav-lang-container {
+    display: flex;
+    align-items: center;
+}
+
+.language-selector {
+    position: relative;
+}
+
+.lang-dropdown-btn {
+    background: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    padding: 5px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    /* Bandera más pequeña */
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.3s ease;
+}
+
+.lang-dropdown-btn:hover {
+    background: #ffffff;
+    border-color: #0056a4;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.lang-dropdown-btn .arrow {
+    font-size: 9px;
+    color: #0056a4;
+}
+
+
+/* Menú Desplegable */
+
+.language-menu {
+    position: absolute;
+    top: 110%;
+    left: 0;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    min-width: 140px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    z-index: 1100;
+    /* Estado inicial oculto */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.language-menu.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.lang-option {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    color: #333;
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+    transition: background 0.2s;
+    text-align: left;
+}
+
+.lang-option:hover {
+    background: #f0f7ff;
+    color: #0056a4;
+}
+
+.lang-option .flag {
+    font-size: 18px;
+}
+
+
+/* --- Hero Section --- */
+
+#hero {
+    background: linear-gradient(rgba(0, 86, 164, 0.8), rgba(0, 86, 164, 0.8)), url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80');
+    background-size: cover;
+    background-position: center;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.highlight {
+    color: #5bc0de;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 30px;
+    background: #fff;
+    color: #0056a4;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #5bc0de;
+    color: white;
+}
+
+
+/* --- Secciones Comunes --- */
+
+#nosotros,
+#servicios,
+#contacto {
+    padding: 80px 10%;
+    text-align: center;
+}
+
+
+/* --- Servicios --- */
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.service-card {
+    padding: 40px;
+    background: #f4f7f9;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+}
+
+
+/* --- Footer --- */
+
+footer {
+    background: #002e5a;
+    color: white;
+    padding: 60px 10% 30px;
+    text-align: center;
+}
+
+footer hr {
+    margin: 20px 0;
+    opacity: 0.2;
+}
